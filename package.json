@@ -1,0 +1,54 @@
+{
+  "name": "nove",
+  "version": "0.1.0",
+  "description": "Creative framework for building enterprise applications with TypeScript.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "onchange 'src/**/*.ts' 'test/**/*.ts' -- ts-node test/app/app.ts",
+    "build": "tsc -p .",
+    "test": "jest test"
+  },
+  "keywords": [
+    "nove",
+    "koa",
+    "restful",
+    "typescript"
+  ],
+  "author": "jasonelchen",
+  "license": "MIT",
+  "files": [
+    "src",
+    "dist/*.js",
+    "types/*.d.ts"
+  ],
+  "dependencies": {
+    "axios": "^0.17.1",
+    "koa": "^2.4.1",
+    "koa-bodyparser": "^4.2.0",
+    "koa-router": "^7.3.0",
+    "reflect-metadata": "^0.1.10",
+    "typescript": "^2.6.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^21.1.8",
+    "@types/koa": "^2.0.42",
+    "@types/koa-router": "^7.0.27",
+    "@types/node": "^8.0.55",
+    "jest": "^21.2.1",
+    "onchange": "^3.2.1",
+    "supertest": "^3.0.0",
+    "ts-jest": "^21.2.4",
+    "ts-node": "^3.3.0",
+    "tslint-config-standard": "^7.0.0"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "transform": {
+      ".(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/test/.*|\\.(test|spec))\\.(ts|js)$"
+  }
+}

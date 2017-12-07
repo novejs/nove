@@ -1,0 +1,18 @@
+{
+    "defaultSeverity": "error",
+    "extends": "tslint-config-standard",
+    "rules": {
+        "arrow-parens": false,
+        "quotemark": [
+            true,
+            "single",
+            "jsx-double"
+        ],
+        "trailing-comma": [
+            true, {
+                "multiline": "never",
+                "singleline": "never"
+            }
+        ]        
+    }
+}

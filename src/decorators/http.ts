@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import { HttpMethods, MetaDataKeys } from '../constants';
+import { HttpMethods, ServiceMetadataKeys } from '../constants';
 
 /**
  * generate decorator
@@ -8,8 +8,8 @@ import { HttpMethods, MetaDataKeys } from '../constants';
  */
 function createMethodDecorator (method: HttpMethods, path: string): MethodDecorator {
     return function (target, propertyKey: string, descriptor: PropertyDescriptor) {
-        Reflect.defineMetadata(MetaDataKeys.PATH, path, descriptor.value);
-        Reflect.defineMetadata(MetaDataKeys.METHOD, method, descriptor.value);
+        Reflect.defineMetadata(ServiceMetadataKeys.path, path, descriptor.value);
+        Reflect.defineMetadata(ServiceMetadataKeys.method, method, descriptor.value);
     }
 }
 

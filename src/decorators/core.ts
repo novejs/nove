@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import { MetaDataKeys } from '../constants';
+import { ControllerMetadataKeys } from '../constants';
 
 /**
  * controller decorator
@@ -11,7 +11,7 @@ import { MetaDataKeys } from '../constants';
  */
 export function Controller (path: string): ClassDecorator {
     return function (target) {
-        Reflect.defineMetadata(MetaDataKeys.PATH, path, target);
+        Reflect.defineMetadata(ControllerMetadataKeys.path, path, target);
     }
 }
 

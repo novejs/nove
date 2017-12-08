@@ -1,20 +1,6 @@
 /**
- * Metadata keys
+ * controllers' metadata keys map
  */
-export enum MetaDataKeys {
-    /**
-     * serve path
-     * valid for: controller, service
-     */
-    PATH = '__PATH__',
-
-    /**
-     * serve method
-     * valid for: service
-     */
-    METHOD = '__METHOD__',
-}
-
 export enum ControllerMetadataKeys {
     /**
      * serve path
@@ -32,6 +18,9 @@ export enum ControllerMetadataKeys {
     afterMiddlewares = '__AFTER_MIDDLEWARES__'
 }
 
+/**
+ * services' metadata keys map
+ */
 export enum ServiceMetadataKeys {
     /**
      * serve path

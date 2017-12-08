@@ -3,6 +3,11 @@ import { NoveRouter } from '../core/nove-router';
 import { NoveOptions, ControllerDescriptor, ServiceDescriptor } from '../interfaces';
 import { exposeControllerMetadata, exposeServiceMetadata } from '../metadatas';
 
+/**
+ * setup routes to app
+ * @param {Koa} app koa application instance
+ * @param options nove options
+ */
 export function setupRouter (app: Koa, options: NoveOptions) {
     const controllers = options.controllers.map(controller => {
         const metadata = exposeControllerMetadata(controller);

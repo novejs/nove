@@ -1,7 +1,7 @@
 import { Middleware } from 'koa';
 import * as KoaRouter from 'koa-router';
 import { ServiceDescriptor } from './service-descriptor';
-import { NoveRouter } from '../drivers/setup-router';
+import { NoveRouter } from '../core/nove-router';
 
 /**
  * describe the configuration of controller

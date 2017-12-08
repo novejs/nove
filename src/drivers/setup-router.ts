@@ -1,78 +1,46 @@
-import * as KoaRouter from 'koa-router';
-import { IRouterOptions } from 'koa-router';
-import { Middleware } from 'koa';
-import { ControllerDescriptor, ServiceDescriptor } from '../interfaces';
-import { returnProxy } from './return-proxy';
+import * as Koa from 'koa';
+import { NoveRouter } from '../core/nove-router';
+import { NoveOptions, ControllerDescriptor, ServiceDescriptor } from '../interfaces';
+import { exposeControllerMetadata, exposeServiceMetadata } from '../metadatas';
 
-export class NoveRouter {
-    root: KoaRouter = null;
+export function setupRouter (app: Koa, options: NoveOptions) {
+    const controllers = options.controllers.map(controller => {
+        const metadata = exposeControllerMetadata(controller);
+        const _proto = controller.prototype;
+        
+        const services = Object
+                            .getOwnPropertyNames(_proto)
+                            .filter(m => m !== 'constructor')
+                            .map(serviceName => {
+                                const service = _proto[serviceName];
+                                const subMetadata = exposeServiceMetadata(service) as ServiceDescriptor;
 
-    /**
-     * create a router
-     * @param {IRouterOptions} options configuration of koa router
-     */
-    constructor (options: IRouterOptions) {
-        this.root = new KoaRouter(options);
-    }
+                                subMetadata.fn = service;
 
-    /**
-     * setup middleware(s) to router
-     * @param {Middleware[]} middlewares
-     */
-    public setupMiddlewares (middlewares: Middleware[]) {
-        middlewares && this.root.use(...middlewares);
-        return this;
-    }
+                                return subMetadata;
+                            }) as ServiceDescriptor[];
 
-    /**
-     * setup controller(s) to router
-     * @param {ControllerDescriptor[]} controllers
-     */
-    public setupControllers (controllers: ControllerDescriptor[]) {
-        controllers.forEach(controller => {
-            const {
-                path,
-                beforeMiddlewares = [],
-                afterMiddlewares = [],
-                self
-            } = controller;
+        const self = initSubRouter(services);
 
-            this.root.use(path, ...[
-                ...beforeMiddlewares,
-                self.routes(),
-                ...afterMiddlewares
-            ])
-        });
+        return Object.assign({}, metadata, { services, self });
+    }) as ControllerDescriptor[];
 
-        return this;
-    }
+    initRootRouter(app, options, controllers);
+}
 
-    /**
-     * setup services(s) to router
-     * @param {ServiceDescriptor[]} services
-     */
-    public setupService (services: ServiceDescriptor[]) {
-        services.forEach(service => {
-            const {
-                path,
-                beforeMiddlewares = [],
-                afterMiddlewares = [],
-                method,
-                returnDescriptor,
-                fn
-            } = service;
+function initRootRouter (app: Koa, options: NoveOptions, controllers: ControllerDescriptor[]) {
+    const rootRouter = new NoveRouter(options);
 
-            this.root[method](path, ...[
-                ...beforeMiddlewares,
-                returnProxy(fn, returnDescriptor),
-                ...afterMiddlewares
-            ])
-        });
+    rootRouter
+        .setupMiddlewares(options.beforeMiddlewares)
+        .setupControllers(controllers)
+        .setupMiddlewares(options.afterMiddlewares)
 
-        return this;
-    }
+    app.use(rootRouter.routes());
+}
 
-    public routes () {
-        return this.root.routes();
-    }
+function initSubRouter (services: ServiceDescriptor[]) {
+    const subRouter = new NoveRouter({});
+    subRouter.setupService(services)
+    return subRouter;
 }

@@ -28,6 +28,16 @@ export interface ServiceDescriptor {
     returnDescriptor: ReturnDescriptor;
 
     /**
+     * response headers
+     */
+    headers: any;
+
+    /**
+     * fn params
+     */
+    params: any;
+
+    /**
      * method of http request that controller served
      */
     method: HttpMethods;

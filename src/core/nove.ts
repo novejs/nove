@@ -7,6 +7,8 @@
  * 
  */
 import * as Koa from 'koa';
+import * as BodyParser from 'koa-bodyparser';
+import * as KoaCors from '@koa/cors';
 import { setupRouter } from '../drivers/setup-router';
 import { NoveOptions } from '../interfaces';
 
@@ -15,6 +17,16 @@ export class Nove {
 
     constructor (options: NoveOptions) {
         this.app = new Koa();
+
+        const {
+            cors = false,
+            parseBody = true,
+            corsConfig = {},
+            parseBodyConfig = {}
+        } = options;
+
+        parseBody && this.app.use(BodyParser(parseBodyConfig));
+        cors && this.app.use(KoaCors(corsConfig));
 
         setupRouter(this.app, options);
     }

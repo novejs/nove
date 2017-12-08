@@ -10,7 +10,7 @@ export function Body (key?: string) {
     return function (target: any, propertyKey: string , parameterIndex: number) {
         const existingParams = getMetadata(target[propertyKey], ServiceMetadataKeys.params) || [];
 
-        existingParams.push({
+        existingParams.unshift({
             paramTarget: 'body',
             key: key,
             target,
@@ -30,7 +30,7 @@ export function Query (key?: string) {
     return function (target: any, propertyKey: string , parameterIndex: number) {
         const existingParams = getMetadata(target[propertyKey], ServiceMetadataKeys.params) || [];
 
-        existingParams.push({
+        existingParams.unshift({
             paramTarget: 'query',
             key: key,
             target,
@@ -50,7 +50,7 @@ export function Param (key?: string) {
     return function (target: any, propertyKey: string , parameterIndex: number) {
         const existingParams = getMetadata(target[propertyKey], ServiceMetadataKeys.params) || [];
 
-        existingParams.push({
+        existingParams.unshift({
             paramTarget: 'param',
             key: key,
             target,
@@ -70,7 +70,7 @@ export function Header (key?: string) {
     return function (target: any, propertyKey: string , parameterIndex: number) {
         const existingParams = getMetadata(target[propertyKey], ServiceMetadataKeys.params) || [];
 
-        existingParams.push({
+        existingParams.unshift({
             paramTarget: 'header',
             key: key,
             target,
@@ -90,7 +90,7 @@ export function Cookie (key: string) {
     return function (target: any, propertyKey: string , parameterIndex: number) {
         const existingParams = getMetadata(target[propertyKey], ServiceMetadataKeys.params) || [];
 
-        existingParams.push({
+        existingParams.unshift({
             paramTarget: 'cookie',
             key: key,
             target,
@@ -110,7 +110,7 @@ export function State (key?: string) {
     return function (target: any, propertyKey: string , parameterIndex: number) {
         const existingParams = getMetadata(target[propertyKey], ServiceMetadataKeys.params) || [];
 
-        existingParams.push({
+        existingParams.unshift({
             paramTarget: 'state',
             key: key,
             target,
@@ -130,7 +130,7 @@ export function Ctx (key?: string) {
     return function (target: any, propertyKey: string , parameterIndex: number) {
         const existingParams = getMetadata(target[propertyKey], ServiceMetadataKeys.params) || [];
 
-        existingParams.push({
+        existingParams.unshift({
             paramTarget: 'ctx',
             key: key,
             target,

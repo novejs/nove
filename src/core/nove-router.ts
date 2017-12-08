@@ -37,11 +37,13 @@ export class NoveRouter {
                 self
             } = controller;
 
-            this.root.use(path, ...[
-                ...beforeMiddlewares,
-                self.routes(),
-                ...afterMiddlewares
-            ])
+            path === '/'
+                ? this.root.use(self.routes())
+                : this.root.use(path, ...[
+                    ...beforeMiddlewares,
+                    self.routes(),
+                    ...afterMiddlewares
+                ])
         });
 
         return this;

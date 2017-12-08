@@ -15,8 +15,8 @@ export function ReturnProxy (
     parent: any
 ): Middleware {
     return async (ctx: Context, next: () => Promise<any>) => {
-        const paramCount = requiredParams.length;
         const params = [];
+        const paramCount = requiredParams ? requiredParams.length : 0;
         let idx = 0;
 
         while (idx < paramCount) {

@@ -4,7 +4,7 @@ import { ControllerMetadataKeys, ServiceMetadataKeys } from '../constants';
 /**
  * expose metadata from target
  * @param {any}  target operate target
- * @param {enum} keys
+ * @param {enum} keys metadata key map
  */
 function exposeMetadata (target, keys) {
     const metadata = {};

@@ -1,4 +1,4 @@
 export * from './core';
 export * from './http';
-
-// TODO: function param decorators
+export * from './service';
+export * from './param';

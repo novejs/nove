@@ -46,4 +46,9 @@ export interface ServiceDescriptor {
      * service itself
      */
     fn: Middleware;
+
+    /**
+     * prototype
+     */
+    parent: Function;
 }

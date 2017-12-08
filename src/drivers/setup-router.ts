@@ -21,9 +21,11 @@ export function setupRouter (app: Koa, options: NoveOptions) {
                                 const subMetadata = exposeServiceMetadata(service) as ServiceDescriptor;
 
                                 subMetadata.fn = service;
+                                subMetadata.parent = controller;
 
                                 return subMetadata;
-                            }) as ServiceDescriptor[];
+                            })
+                            .filter(s => s.method !== undefined && s.path !== undefined) as ServiceDescriptor[];
 
         const self = initSubRouter(services);
 

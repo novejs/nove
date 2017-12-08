@@ -1,12 +1,16 @@
-import { Controller, GET } from '../../../src';
+import { Controller, GET, Ctx, State } from '../../../src';
 
 @Controller('/blogs')
 export class MyController {
 
     @GET('/')
-    async index (ctx, next) {
-        // ctx.body = { msg: 'hello' };
+    async index (@Ctx() ctx: any, @State() state) {
+        this.a();
 
-        return { msg: 'hello' }
+        return { a: 1 }
+    }
+
+    a () {
+        console.log('aaaaaa');
     }
 }

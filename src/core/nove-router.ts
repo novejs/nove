@@ -2,7 +2,7 @@ import * as KoaRouter from 'koa-router';
 import { IRouterOptions } from 'koa-router';
 import { Middleware } from 'koa';
 import { ControllerDescriptor, ServiceDescriptor } from '../interfaces';
-import { returnProxy } from '../drivers';
+import { ReturnProxy } from '../drivers';
 
 export class NoveRouter {
     root: KoaRouter = null;
@@ -64,7 +64,7 @@ export class NoveRouter {
 
             this.root[method](path, ...[
                 ...beforeMiddlewares,
-                returnProxy(fn, returnDescriptor),
+                ReturnProxy.serve(fn, returnDescriptor, service),
                 ...afterMiddlewares
             ])
         });

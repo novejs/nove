@@ -38,9 +38,9 @@ export enum ServiceMetadataKeys {
     afterMiddlewares = '__AFTER_MIDDLEWARES__',
 
     /**
-     * return types
+     * return descriptor
      */
-    returnType = '__RETURN_TYPE__',
+    returnDescriptor = '__RETURN_DESCRIPTOR__',
 
     /**
      * headers

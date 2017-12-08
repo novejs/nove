@@ -1,3 +1,3 @@
 # Nove
 
-Creative framework for building enterprise applications with TypeScript.
+A creative framework for building enterprise applications with TypeScript.

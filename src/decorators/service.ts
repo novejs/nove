@@ -41,7 +41,7 @@ export function Return (typeDescriptor: new () => {}) {
  * @param {string|object} key header's key or headers map
  * @param {string} value header's value
  */
-export function Headers (key: string | object, value: string) {
+export function Headers (key: string | object, value?: string) {
     let headers = key;
     if (typeof key === 'string') {
         headers = { [key]: value };
@@ -49,6 +49,6 @@ export function Headers (key: string | object, value: string) {
 
     return function (target, propertyKey?: string, descriptor?: PropertyDescriptor) {
         const oldHeaders = getMetadata(descriptor.value, ServiceMetadataKeys.headers) || {};
-        setMetadata(descriptor.value, ServiceMetadataKeys.returnDescriptor, Object.assign({}, oldHeaders, headers));
+        setMetadata(descriptor.value, ServiceMetadataKeys.headers, Object.assign({}, oldHeaders, headers));
     }
 }

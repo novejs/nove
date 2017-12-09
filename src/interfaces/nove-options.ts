@@ -1,7 +1,7 @@
 /**
  * options interface of Nove constructor
  */
-import { Middleware } from 'koa';
+import { Middleware, Context } from 'koa';
 import { IRouterOptions } from 'koa-router';
 import { Options as CorsOptions } from '@koa/cors';
 
@@ -74,7 +74,7 @@ export interface NoveOptions extends IRouterOptions {
         /**
          * custom json request detect function. Default is null
          */
-        detectJSON?: (ctx: Koa.Context) => boolean;
+        detectJSON?: (ctx: Context) => boolean;
     
         /**
          * support extend types
@@ -88,6 +88,6 @@ export interface NoveOptions extends IRouterOptions {
         /**
          * support custom error handle
          */
-        onerror?: (err: Error, ctx: Koa.Context) => void;
+        onerror?: (err: Error, ctx: Context) => void;
     }
 }

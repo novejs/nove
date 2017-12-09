@@ -28,7 +28,7 @@ export function Controller (path: string): ClassDecorator {
  * 
  * @param {Middleware[]} middlewares koa middlewares
  */
-export function UseBefore (...middlewares: Middleware[]): ClassDecorator | MethodDecorator {
+export function UseBefore (...middlewares: Middleware[]): Function {
     return function (target, propertyKey?: string, descriptor?: PropertyDescriptor) {
         let trg = target;
         if (descriptor) {
@@ -54,7 +54,7 @@ export function UseBefore (...middlewares: Middleware[]): ClassDecorator | Metho
  * 
  * @param {Middleware[]} middlewares koa middlewares
  */
-export function UseAfter (...middlewares: Middleware[]): ClassDecorator | MethodDecorator {
+export function UseAfter (...middlewares: Middleware[]): Function {
     return function (target, propertyKey?: string, descriptor?: PropertyDescriptor) {
         let trg = target;
         if (descriptor) {

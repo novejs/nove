@@ -1,6 +1,6 @@
 {
   "name": "nove",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "A creative framework for building enterprise applications with TypeScript.",
   "main": "src/index.ts",
   "scripts": {

@@ -1,8 +1,8 @@
 {
   "name": "nove",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A creative framework for building enterprise applications with TypeScript.",
-  "main": "index.js",
+  "main": "src/index.ts",
   "scripts": {
     "dev": "onchange 'src/**/*.ts' 'test/**/*.ts' -- ts-node test/app/app.ts",
     "build": "tsc -p .",

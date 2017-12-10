@@ -7,6 +7,7 @@
  * 
  */
 import * as Koa from 'koa';
+import { Server } from 'http';
 import * as BodyParser from 'koa-bodyparser';
 import * as KoaCors from '@koa/cors';
 import { setupRouter } from '../drivers/setup-router';
@@ -31,7 +32,7 @@ export class Nove {
         setupRouter(this.app, options);
     }
 
-    public listen (...args) {
+    public listen (...args): Server {
         if (this.app === null) {
             throw new Error('⨯ Cannot call .listen before Nove be initialized.');
         }

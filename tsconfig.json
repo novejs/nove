@@ -10,11 +10,11 @@
         "target": "es6",
         "inlineSourceMap": true,
         "outDir": "dist",
-        "declaration": false
+        "declaration": true,
+        "moduleResolution": "node"
     },
     "include": [
-        "src/**/*.ts",
-        "test/**/*.ts"
+        "src/**/*.ts"
     ],
     "exclude": [
         "node_modules",

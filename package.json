@@ -1,8 +1,9 @@
 {
   "name": "nove",
-  "version": "0.2.3",
+  "version": "0.2.5",
   "description": "A creative framework for building enterprise applications with TypeScript.",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
   "scripts": {
     "dev": "onchange 'src/**/*.ts' 'test/**/*.ts' -- ts-node test/app/app.ts",
     "build": "tsc -p .",
@@ -16,11 +17,6 @@
   ],
   "author": "jasonelchen",
   "license": "MIT",
-  "files": [
-    "src",
-    "dist/*.js",
-    "types/*.d.ts"
-  ],
   "dependencies": {
     "@koa/cors": "^2.2.1",
     "axios": "^0.17.1",

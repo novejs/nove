@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "onchange 'src/**/*.ts' 'test/**/*.ts' -- ts-node test/app/app.ts",
     "build": "tsc -p .",
-    "test": "jest test/test-suit"
+    "test": "jest test/test-suit",
+    "pub": "npm run build && npm publish"
   },
   "keywords": [
     "nove",

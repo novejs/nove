@@ -16,7 +16,7 @@
     "restful",
     "typescript"
   ],
-  "author": "jasonelchen",
+  "author": "JasonChen <me@ijason.cc>",
   "license": "MIT",
   "dependencies": {
     "@koa/cors": "^2.2.1",

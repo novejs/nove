@@ -2,6 +2,8 @@
 
 A creative framework for building enterprise applications with TypeScript.
 
+Inspired by [Nestjs](https://nestjs.com/) and [routing-controllers](https://github.com/typestack/routing-controllers).
+
 ## Installation
 
 ```bash
@@ -18,10 +20,10 @@ import { Nove, Controller, GET } from 'nove';
 
 @Controller('/')
 class MyController {
-  @GET('/')
-  async index () {
-    return { name: 'Jason' };
-  }
+    @GET('/')
+    async index () {
+        return { name: 'Jason' };
+    }
 }
 
 const app = new Nove({
@@ -40,3 +42,9 @@ ts-node app.ts
 ```
 
 And then visit `http://localhost:3000/` with your browser.
+
+## LICENSE
+
+[MIT LICENSE](https://jas0ncn.mit-license.org/)
+
+Copyright (c) 2017-present, JasonChen (Junyi Chen).

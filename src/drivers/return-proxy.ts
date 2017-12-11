@@ -12,7 +12,8 @@ export function ReturnProxy (
     fn: any,
     returnDescriptor: ReturnDescriptor,
     requiredParams: any,
-    parent: any
+    parent: any,
+    headers: any
 ): Middleware {
     return async (ctx: Context, next: () => Promise<any>) => {
         const params = [];
@@ -36,6 +37,7 @@ export function ReturnProxy (
 
         try {
             const returnValue = await fn.apply(parent.prototype, params);
+            ctx.headers = headers;
             ctx.body = returnValue;
         } catch (e) {
             throw e;

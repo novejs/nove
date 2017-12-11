@@ -63,12 +63,13 @@ export class NoveRouter {
                 returnDescriptor,
                 fn,
                 params,
-                parent
+                parent,
+                headers
             } = service;
 
             this.root[method](path, ...[
                 ...beforeMiddlewares,
-                ReturnProxy(fn, returnDescriptor, params, parent),
+                ReturnProxy(fn, returnDescriptor, params, parent, headers),
                 ...afterMiddlewares
             ])
         });

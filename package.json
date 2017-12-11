@@ -1,6 +1,6 @@
 {
   "name": "nove",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "A creative framework for building enterprise applications with TypeScript.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",

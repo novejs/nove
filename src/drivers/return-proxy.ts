@@ -37,7 +37,7 @@ export function ReturnProxy (
 
         try {
             const returnValue = await fn.apply(parent.prototype, params);
-            ctx.headers = headers;
+            ctx.set(headers);
             ctx.body = returnValue;
         } catch (e) {
             throw e;

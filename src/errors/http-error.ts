@@ -60,6 +60,11 @@ export const UnauthorizedError = createHttpError(401);
 export const ForbiddenError = createHttpError(403);
 
 /**
+ * 404 Not Found
+ */
+export const NotFoundError = createHttpError(404);
+
+/**
  * 413 Request Entity Too Large
  */
 export const RequestEntityTooLargeError = createHttpError(413);

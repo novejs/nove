@@ -1,5 +1,6 @@
 import { Middleware, Context } from 'koa';
 import { ReturnDescriptor, ServiceDescriptor } from '../interfaces';
+import { HttpError } from '../errors/http-error';
 
 /**
  * pack service fn
@@ -40,7 +41,12 @@ export function ReturnProxy (
             ctx.set(headers);
             ctx.body = returnValue;
         } catch (e) {
-            throw e;
+            if (e instanceof HttpError) {
+                ctx.status = e.httpCode;
+                ctx.body = e.message;
+            } else {
+                throw e;
+            }
         }
     }
 }

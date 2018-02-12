@@ -1,4 +1,4 @@
-import { Nove } from '../../src/index';
+import { Nove, BadRequestError } from '../../src/index';
 
 import { MyController } from './controllers'
 

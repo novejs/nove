@@ -1,3 +1,6 @@
+// error payload key
+export const payloadKey = Symbol('payload')
+
 /**
  * custom http error
  * @example
@@ -9,15 +12,18 @@ export class HttpError extends Error {
      */
     httpCode: number = 500;
 
-    constructor (httpCode: number, message?: string) {
+    [payloadKey]: any = undefined;
+
+    constructor (httpCode: number, payload?: any) {
         super();
 
         Object.setPrototypeOf(this, HttpError.prototype);
         
         this.httpCode = httpCode;
 
-        if (message) {
-            this.message = message;
+        if (payload) {
+            this.message = payload.toString();
+            this[payloadKey] = payload
         }
 
         this.stack = new Error().stack;
@@ -30,10 +36,12 @@ export class HttpError extends Error {
  */
 function createHttpError (code: number) {
     return class CustomHttpError extends HttpError {
-        constructor (message?: string) {
+        constructor (payload?: any) {
             super(code);
-            if (message) {
-                this.message = message;
+
+            if (payload) {
+                this.message = payload.toString();
+                this[payloadKey] = payload
             }
         }
     }

@@ -1,6 +1,6 @@
 import { Middleware, Context } from 'koa';
 import { ReturnDescriptor, ServiceDescriptor } from '../interfaces';
-import { HttpError } from '../errors/http-error';
+import { HttpError, payloadKey } from '../errors/http-error';
 
 /**
  * pack service fn
@@ -43,7 +43,7 @@ export function ReturnProxy (
         } catch (e) {
             if (e instanceof HttpError) {
                 ctx.status = e.httpCode;
-                ctx.body = e.message;
+                ctx.body = e[payloadKey] || e.message;
             } else {
                 throw e;
             }

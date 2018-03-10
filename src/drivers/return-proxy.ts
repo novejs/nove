@@ -76,6 +76,6 @@ function exposeContext (ctx: Context, key: string, subKey?: string) {
                 ? ctx.state[subKey]
                 : ctx.state;
         default:
-            return ctx;
+            return subKey ? ctx[subKey] : ctx;
     }
 }

@@ -9,6 +9,7 @@ import { HttpError, payloadKey } from '../errors/http-error';
  * @param {any} requiredParams
  * @param {any} parent
  */
+/* istanbul ignore next */
 export function ReturnProxy (
     fn: any,
     returnDescriptor: ReturnDescriptor,
@@ -51,6 +52,7 @@ export function ReturnProxy (
     }
 }
 
+/* istanbul ignore next */
 function exposeContext (ctx: Context, key: string, subKey?: string) {
     switch (key) {
         case 'body':

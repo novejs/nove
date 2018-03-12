@@ -3,7 +3,6 @@
         "module": "commonjs",
         "noImplicitAny": false,
         "noUnusedLocals": false,
-        "removeComments": true,
         "noLib": false,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,

@@ -34,6 +34,7 @@ export class HttpError extends Error {
  * packaging common http errors
  * @param {number} code http code
  */
+/* istanbul ignore next */
 function createHttpError (code: number) {
     return class CustomHttpError extends HttpError {
         constructor (payload?: any) {

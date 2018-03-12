@@ -32,6 +32,7 @@ export class Nove {
         setupRouter(this.app, options);
     }
 
+    /* istanbul ignore next */
     public listen (...args): Server {
         if (this.app === null) {
             throw new Error('⨯ Cannot call .listen before Nove be initialized.');

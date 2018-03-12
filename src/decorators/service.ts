@@ -19,6 +19,7 @@ import { getMetadata, setMetadata } from '../metadatas';
  * 
  * @param {Class} typeDescriptor
  */
+/* istanbul ignore next */
 export function Return (typeDescriptor: new () => {}) {
     return function (target, propertyKey?: string, descriptor?: PropertyDescriptor) {
         const returnType = getMetadata(descriptor.value, ServiceMetadataKeys.returnDescriptor) || {};

@@ -1,5 +1,7 @@
 # Nove
 
+[![Travis](https://img.shields.io/travis/novejs/nove.svg)](https://github.com/novejs/nove) [![npm](https://img.shields.io/npm/v/nove.svg)](https://github.com/novejs/nove) [![license](https://img.shields.io/github/license/novejs/nove.svg)](https://github.com/novejs/nove)
+
 A creative framework for building enterprise applications with TypeScript.
 
 Inspired by [Nestjs](https://nestjs.com/) and [routing-controllers](https://github.com/typestack/routing-controllers).

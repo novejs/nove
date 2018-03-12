@@ -48,7 +48,7 @@ describe('Http errors', () => {
 
     test('ForbiddenError', () => {
         const errMsg = 'anything wrong'
-        const e = new UnauthorizedError(errMsg)
+        const e = new ForbiddenError(errMsg)
 
         expect(e.httpCode).toBe(403)
         expect(e.message).toBe(errMsg)
@@ -56,7 +56,7 @@ describe('Http errors', () => {
 
     test('NotFoundError', () => {
         const errMsg = 'anything wrong'
-        const e = new UnauthorizedError(errMsg)
+        const e = new NotFoundError(errMsg)
 
         expect(e.httpCode).toBe(404)
         expect(e.message).toBe(errMsg)
@@ -64,7 +64,7 @@ describe('Http errors', () => {
 
     test('RequestEntityTooLargeError', () => {
         const errMsg = 'anything wrong'
-        const e = new UnauthorizedError(errMsg)
+        const e = new RequestEntityTooLargeError(errMsg)
 
         expect(e.httpCode).toBe(413)
         expect(e.message).toBe(errMsg)
@@ -72,7 +72,7 @@ describe('Http errors', () => {
 
     test('InternalServerError', () => {
         const errMsg = 'anything wrong'
-        const e = new UnauthorizedError(errMsg)
+        const e = new InternalServerError(errMsg)
 
         expect(e.httpCode).toBe(500)
         expect(e.message).toBe(errMsg)
@@ -80,7 +80,7 @@ describe('Http errors', () => {
 
     test('NotImplemented', () => {
         const errMsg = 'anything wrong'
-        const e = new UnauthorizedError(errMsg)
+        const e = new NotImplemented(errMsg)
 
         expect(e.httpCode).toBe(501)
         expect(e.message).toBe(errMsg)
@@ -88,7 +88,7 @@ describe('Http errors', () => {
 
     test('ServiceUnavailableError', () => {
         const errMsg = 'anything wrong'
-        const e = new UnauthorizedError(errMsg)
+        const e = new ServiceUnavailableError(errMsg)
 
         expect(e.httpCode).toBe(503)
         expect(e.message).toBe(errMsg)
@@ -96,7 +96,7 @@ describe('Http errors', () => {
 
     test('GatewayTimeoutError', () => {
         const errMsg = 'anything wrong'
-        const e = new UnauthorizedError(errMsg)
+        const e = new GatewayTimeoutError(errMsg)
 
         expect(e.httpCode).toBe(504)
         expect(e.message).toBe(errMsg)

@@ -57,8 +57,8 @@ function exposeContext (ctx: Context, key: string, subKey?: string) {
     switch (key) {
         case 'body':
             return subKey
-                ? ctx.request.body[subKey]
-                : ctx.request.body;
+                ? (ctx.request as any).body[subKey]
+                : (ctx.request as any).body;
         case 'query':
             return subKey
                 ? ctx.query[subKey]

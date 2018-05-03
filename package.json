@@ -1,6 +1,6 @@
 {
   "name": "nove",
-  "version": "1.0.9",
+  "version": "2.0.0",
   "description": "A creative framework for building enterprise applications with TypeScript.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -19,15 +19,11 @@
   "author": "JasonChen <me@ijason.cc>",
   "license": "MIT",
   "dependencies": {
-    "@koa/cors": "^2.2.1",
     "@types/koa": "^2.0.44",
-    "@types/koa-bodyparser": "^4.2.0",
     "@types/koa-router": "^7.0.28",
-    "@types/koa__cors": "^2.2.2",
     "@types/node": "^10.0.2",
     "axios": "^0.18.0",
     "koa": "^2.5.1",
-    "koa-bodyparser": "^4.2.0",
     "koa-router": "^7.4.0",
     "reflect-metadata": "^0.1.12",
     "typescript": "^2.8.3"

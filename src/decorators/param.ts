@@ -1,5 +1,5 @@
 import { ServiceMetadataKeys } from '../constants';
-import { getMetadata, setMetadata } from '../metadatas';
+import { getMetadata, setMetadata } from '../metadata';
 
 /**
  * alias of ctx.request.body

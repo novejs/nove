@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import { setMetadata, getMetadata } from '../../../src/metadatas';
+import { setMetadata, getMetadata } from '../../../src/metadata';
 import { ControllerMetadataKeys, ServiceMetadataKeys } from '../../../src/constants';
 
 describe('Metadata operators', () => {

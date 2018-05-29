@@ -1,6 +1,6 @@
 import { Middleware } from 'koa';
 import { ControllerMetadataKeys, ServiceMetadataKeys } from '../constants';
-import { getMetadata, setMetadata } from '../metadatas';
+import { getMetadata, setMetadata } from '../metadata';
 
 /**
  * controller decorator

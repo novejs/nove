@@ -1,7 +1,7 @@
 import * as Koa from 'koa';
 import { NoveRouter } from '../core/nove-router';
 import { NoveOptions, ControllerDescriptor, ServiceDescriptor } from '../interfaces';
-import { exposeControllerMetadata, exposeServiceMetadata } from '../metadatas';
+import { exposeControllerMetadata, exposeServiceMetadata } from '../metadata';
 
 /**
  * setup routes to app

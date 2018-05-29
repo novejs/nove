@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import { exposeControllerMetadata, exposeServiceMetadata } from '../../../src/metadatas';
+import { exposeControllerMetadata, exposeServiceMetadata } from '../../../src/metadata';
 import { ControllerMetadataKeys, ServiceMetadataKeys } from '../../../src/constants';
 
 describe('Metadata expose', () => {
